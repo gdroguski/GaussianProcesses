@@ -64,7 +64,9 @@ class plotter:
         plt.ylabel('Normalized price')
 
         plt.tight_layout()
-        plt.show()
+
+        fname = '{}_{}_{}_normalized_prices.png'.format(self.__company_name, start_year, end_year)
+        fig.savefig(fname, dpi=fig.dpi)
 
     def show_gp_prediction(self, train_start: int, train_end: int, pred_year: int, pred_quarters: list = None):
         self.__validate_dates(start_year=train_start, end_year=pred_year)
@@ -115,7 +117,9 @@ class plotter:
         plt.ylabel('Normalized price')
 
         plt.tight_layout()
-        plt.show()
+
+        fname = '{}_{}_prediction.png'.format(self.__company_name, pred_year)
+        fig.savefig(fname, dpi=fig.dpi)
 
     def show_whole_time_series(self, intermediate: bool = False):
         self.show_time_series(start_year=self.__years[0], end_year=self.__years[-1], intermediate=intermediate)
@@ -162,7 +166,9 @@ class plotter:
         plt.ylabel('Price')
 
         plt.tight_layout()
-        plt.show()
+
+        fname = '{}_{}_{}_prices.png'.format(self.__company_name, start_year, end_year)
+        fig.savefig(fname, dpi=fig.dpi)
 
     def __validate_dates(self, start_year: int, end_year: int):
         if start_year < self.__years[0] or end_year > self.__years[-1]:
