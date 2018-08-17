@@ -4,7 +4,9 @@
 
 <p>It is obvious that the method developped during this process of creation is not ideal, if it were so I wouldn't share this publictly and made profits myself instead. ;) But nevertheless it can give some good forecasts and be used as another indicator in technical analysis of stock prices as we will see later on below.</p>
 
-The project is written in ```Python 3``` and to run it you will need also ```matplotlib```, ```numpy```, ```pandas``` and ```sklearn``` libraries. As written in [Data and Evaluation](#data-and-evaluation) section, the data was downloaded from yahoo finance section in the ```csv``` format so basically if you'd like to test this model on some other companies from yahoo you only have to download and put it into ```Data``` directory within the project. Also worth mentioning is the fact that to run the analysis you have to run the ```data_presenter.py``` file and the project will do it's magic for every file in ```Data``` directory.
+The project is written in ```Python 3``` and to run it you will need also ```matplotlib```, ```numpy```, ```pandas``` and ```sklearn``` libraries. As written in [Data and Evaluation](#data-and-evaluation) section, the data was downloaded from yahoo finance section in the ```csv``` format so basically if you'd like to test this model on some other companies from yahoo you only have to download and put it into ```Data``` directory within the project. 
+
+Worth mentioning is the fact that to run the analysis you have to run the ```data_presenter.py``` file and the project will do it's magic for every file in ```Data``` directory. So to run just type ```python data_presenter.py```.
 
 ## Table of Contents
 * [Gaussian Processes](#gaussian-processes)
