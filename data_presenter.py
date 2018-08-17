@@ -3,7 +3,7 @@ import os
 import data_plotter
 
 companies = []
-plotters:  Dict[str, data_plotter.plotter] = {}
+plotters:  Dict[str, data_plotter.Plotter] = {}
 start_year = 2008
 
 
@@ -11,6 +11,7 @@ def main():
     __init_data()
     for company in companies:
         make_summary(company)
+    print("Done!")
 
 
 def make_summary(company_name):
@@ -28,7 +29,7 @@ def __init_data():
     for company in os.listdir('Data'):
         current_company = company.split('.')[0]
         companies.append(current_company)
-        plotters[current_company] = (data_plotter.plotter(company_name=current_company))
+        plotters[current_company] = (data_plotter.Plotter(company_name=current_company))
 
 
 if __name__ == "__main__":

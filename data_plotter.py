@@ -5,7 +5,7 @@ import data_handler
 import gpr_wrapper
 
 
-class plotter:
+class Plotter:
     __company_name = None
     __company_handler = None
     __prices_data = None
@@ -17,13 +17,13 @@ class plotter:
 
     def __init__(self, company_name: str):
         self.__company_name = company_name
-        self.__company_handler = data_handler.csv_handler(company_name)
+        self.__company_handler = data_handler.CsvHandler(company_name)
         self.__prices_data = self.__company_handler.get_equal_length_prices()
         self.__quarters = self.__company_handler.quarters
         self.__years = self.__company_handler.years
         self.__max_days = self.__company_handler.max_days
         self.__quarter_length = int(self.__max_days / 4)
-        self.__gpr = gpr_wrapper.wrapper(company_name)
+        self.__gpr = gpr_wrapper.Wrapper(company_name)
 
     def show_preprocessed_price(self, year: int):
         self.show_preprocessed_prices(start_year=year, end_year=year)
@@ -67,6 +67,7 @@ class plotter:
 
         fname = '{}_{}_{}_normalized_prices.png'.format(self.__company_name, start_year, end_year)
         fig.savefig(fname, dpi=fig.dpi)
+        plt.clf()
 
     def show_gp_prediction(self, train_start: int, train_end: int, pred_year: int, pred_quarters: list = None):
         self.__validate_dates(start_year=train_start, end_year=pred_year)
@@ -120,6 +121,7 @@ class plotter:
 
         fname = '{}_{}_prediction.png'.format(self.__company_name, pred_year)
         fig.savefig(fname, dpi=fig.dpi)
+        plt.clf()
 
     def show_whole_time_series(self, intermediate: bool = False):
         self.show_time_series(start_year=self.__years[0], end_year=self.__years[-1], intermediate=intermediate)
@@ -169,6 +171,7 @@ class plotter:
 
         fname = '{}_{}_{}_prices.png'.format(self.__company_name, start_year, end_year)
         fig.savefig(fname, dpi=fig.dpi)
+        plt.clf()
 
     def __validate_dates(self, start_year: int, end_year: int):
         if start_year < self.__years[0] or end_year > self.__years[-1]:

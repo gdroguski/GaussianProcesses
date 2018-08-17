@@ -6,7 +6,7 @@ from sklearn.gaussian_process.kernels import RBF
 import data_handler
 
 
-class wrapper:
+class Wrapper:
     __company_data = None
     __prices_data = None
     __quarters = None
@@ -17,7 +17,7 @@ class wrapper:
     __gp = None
 
     def __init__(self, company_name: str):
-        self.__company_data = data_handler.csv_handler(company_name)
+        self.__company_data = data_handler.CsvHandler(company_name)
         self.__prices_data = self.__company_data.get_equal_length_prices()
         self.__quarters = self.__company_data.quarters
         self.__years = self.__company_data.years

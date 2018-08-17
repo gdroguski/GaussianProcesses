@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-class csv_handler:
+class CsvHandler:
     df = None
     quarters = None
     years = None
